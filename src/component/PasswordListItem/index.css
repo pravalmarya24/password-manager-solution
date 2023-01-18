@@ -1,0 +1,39 @@
+.password-list-card-container {
+  background-color: #5763a5;
+  width: 777px;
+  border-radius: 15px;
+  padding: 25px;
+}
+
+.password-and-search-container {
+  border-bottom-width: 2px;
+  border-color: #c3caea;
+}
+
+.your-password-heading {
+  font-family: 'Roboto';
+  font-size: 18px;
+  font-weight: 400;
+  color: #ffffff;
+}
+
+.counter-para {
+  font-family: 'Roboto';
+  font-size: 10px;
+  font-weight: 400;
+  color: #ffffff;
+  background-color: transparent;
+  border-width: 1px;
+  border-color: #ffffff;
+  border-radius: 20px;
+}
+
+.checkbox-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.passwords-list-container {
+  border-width: 1px;
+  border-style: solid;
+}
