@@ -10,6 +10,8 @@ class Password extends Component {
     websiteName: '',
     password: '',
     count: 0,
+    isActive: false,
+    searchInput: '',
   }
 
   onSubmitUserPassword = event => {
@@ -28,6 +30,7 @@ class Password extends Component {
       userName: '',
       password: '',
       websiteName: '',
+      count: prevState.count + 1,
     }))
   }
 
@@ -35,7 +38,7 @@ class Password extends Component {
     this.setState({websiteName: event.target.value})
   }
 
-  onGettinguserName = event => {
+  onGettingUserName = event => {
     this.setState({userName: event.target.value})
   }
 
@@ -43,8 +46,41 @@ class Password extends Component {
     this.setState({password: event.target.value})
   }
 
+  onSearchInput = event => {
+    this.setState({searchInput: event.target.value})
+  }
+
+  ondeleteListItems = id => {
+    const {passwordList} = this.state
+    const deleteFilteredList = passwordList.filter(eachId => eachId.id !== id)
+    this.setState(prevState => ({
+      passwordList: deleteFilteredList,
+      count: prevState.count - 1,
+    }))
+  }
+
+  isChecked = () => {
+    const {isActive} = this.state
+    this.setState(prevState => ({
+      isActive: !prevState.isActive,
+    }))
+  }
+
   render() {
-    const {passwordList, websiteName, password, userName} = this.state
+    const {
+      passwordList,
+      websiteName,
+      password,
+      userName,
+      count,
+      searchInput,
+      isActive,
+    } = this.state
+
+    const filteredSearchInputList = passwordList.filter(each =>
+      each.websiteName.includes(searchInput),
+    )
+
     return (
       <div className="password-bg-container">
         <img
@@ -83,7 +119,7 @@ class Password extends Component {
                 type="text"
                 placeholder="Enter Username"
                 className="text-elem-website"
-                onChange={this.onGettinguserName}
+                onChange={this.onGettingUserName}
                 value={userName}
               />
             </div>
@@ -117,11 +153,62 @@ class Password extends Component {
             />
           </div>
         </div>
-        <ul className="unordered-list">
-          {passwordList.map(eachList => (
-            <PasswordListItems userInfo={eachList} key={eachList.id} />
-          ))}
-        </ul>
+        <div className="password-list-card-container">
+          <div className="your-password-counter-container">
+            <h1 className="your-password-heading">Your Passwords</h1>
+            <div className="counter-container">
+              <p className="counter-para">{count}</p>
+            </div>
+            <div className="search-input-container">
+              <div className="search-logo-container">
+                <img
+                  src="https://assets.ccbp.in/frontend/react-js/password-manager-search-img.png"
+                  alt="search"
+                  className="search-logo-size"
+                />
+              </div>
+              <input
+                type="search"
+                placeholder="Enter search"
+                className="text-elem-search"
+                onChange={this.onSearchInput}
+              />
+            </div>
+          </div>
+          <hr className="horizontal-line" />
+          <div className="checkbox-container">
+            <input
+              type="checkbox"
+              className="checkbox-size"
+              id="checkboxId"
+              onClick={this.isChecked}
+            />
+            <label className="label-element" htmlFor="checkboxId">
+              Show Passwords
+            </label>
+          </div>
+          <ul className="unordered-list">
+            {passwordList.length === 0 ? (
+              <div className="no-password-container">
+                <img
+                  src="https://assets.ccbp.in/frontend/react-js/no-passwords-img.png"
+                  alt="no passwords"
+                  className="no-password-image"
+                />
+                <p className="no-password-para">No Passwords</p>
+              </div>
+            ) : (
+              filteredSearchInputList.map(eachList => (
+                <PasswordListItems
+                  userInfo={eachList}
+                  key={eachList.id}
+                  ondeleteListItems={this.ondeleteListItems}
+                  isValid={isActive}
+                />
+              ))
+            )}
+          </ul>
+        </div>
       </div>
     )
   }

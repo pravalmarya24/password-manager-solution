@@ -1,39 +1,88 @@
-.password-list-card-container {
-  background-color: #5763a5;
-  width: 777px;
-  border-radius: 15px;
-  padding: 25px;
-}
-
-.password-and-search-container {
-  border-bottom-width: 2px;
-  border-color: #c3caea;
-}
-
-.your-password-heading {
-  font-family: 'Roboto';
-  font-size: 18px;
-  font-weight: 400;
-  color: #ffffff;
-}
-
-.counter-para {
-  font-family: 'Roboto';
-  font-size: 10px;
-  font-weight: 400;
-  color: #ffffff;
-  background-color: transparent;
-  border-width: 1px;
-  border-color: #ffffff;
-  border-radius: 20px;
-}
-
-.checkbox-container {
-  display: flex;
-  justify-content: flex-end;
+.list-container {
+  list-style-type: none;
+  margin-right: 15px;
+  margin-left: 0;
+  padding-left: 0;
 }
 
 .passwords-list-container {
   border-width: 1px;
   border-style: solid;
+  border-color: #c3caea;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 90px;
+  width: 240px;
+  padding: 15px;
+}
+
+.description-para {
+  height: 60px;
+  width: 160px;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.website-name {
+  font-family: 'Roboto';
+  font-size: 12px;
+  font-weight: 400;
+  color: #ffffff;
+  margin-bottom: 0;
+}
+
+.username-para {
+  font-family: 'Roboto';
+  font-size: 12px;
+  font-weight: 400;
+  color: #ffffff;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 3px;
+  padding-left: 0;
+}
+.password-image {
+  font-family: 'Roboto';
+  font-size: 12px;
+  font-weight: 400;
+  color: #ffffff;
+  margin-top: 0;
+}
+
+.delete-image {
+  height: 20px;
+  width: 20px;
+}
+
+.initial-para {
+  font-family: 'Roboto';
+  font-size: 15px;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.name-initial-letter {
+  border-radius: 490px;
+  height: 38px;
+  width: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: blue;
+}
+
+.star-size {
+  height: 11px;
+  width: 70px;
+}
+
+.delete-btn {
+  background-color: transparent;
+  cursor: pointer;
+  outline: none;
+  border-width: 0px;
 }
