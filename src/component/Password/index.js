@@ -60,7 +60,6 @@ class Password extends Component {
   }
 
   isChecked = () => {
-    const {isActive} = this.state
     this.setState(prevState => ({
       isActive: !prevState.isActive,
     }))
@@ -155,9 +154,11 @@ class Password extends Component {
         </div>
         <div className="password-list-card-container">
           <div className="your-password-counter-container">
-            <h1 className="your-password-heading">Your Passwords</h1>
-            <div className="counter-container">
-              <p className="counter-para">{count}</p>
+            <div className="heading-count-para-container">
+              <h1 className="your-password-heading">Your Passwords</h1>
+              <div className="counter-container">
+                <p className="counter-para">{count}</p>
+              </div>
             </div>
             <div className="search-input-container">
               <div className="search-logo-container">
