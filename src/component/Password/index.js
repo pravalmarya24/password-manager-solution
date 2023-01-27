@@ -77,7 +77,7 @@ class Password extends Component {
     } = this.state
 
     const filteredSearchInputList = passwordList.filter(each =>
-      each.websiteName.includes(searchInput),
+      each.websiteName.toLowerCase().includes(searchInput.toLowerCase()),
     )
 
     return (
@@ -189,7 +189,7 @@ class Password extends Component {
             </label>
           </div>
           <ul className="unordered-list">
-            {passwordList.length === 0 ? (
+            {filteredSearchInputList.length === 0 ? (
               <div className="no-password-container">
                 <img
                   src="https://assets.ccbp.in/frontend/react-js/no-passwords-img.png"
